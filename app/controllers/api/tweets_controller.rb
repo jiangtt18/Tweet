@@ -2,16 +2,29 @@ class  Api::TweetsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tweets = Tweet.all.order(id: :desc).limit(25)
+    user = User.find_by(id: parmas[:authorId])
+    if user
+      @tweets = user.tweets.order(id: :desc).limit(25)
+    else
+       render json: ["no tweets posted?"], status: 404
+    end
+
   end
+
+  def show
+    @tweet = Tweet.find(params[:id])
 
   def create
     @tweet = Tweet.new(tweet_params)
-    @tweet.user_id = current_user.id
+
+    if @tweet.save
+      render :show
+    else
+      render json: @tweet.errors.full_messages, status: 422
   end
 
   def tweet_params
-    params.require(:tweet).permit(:body)
+    params.require(:tweet).permit(:body, :author_id)
   end
 
 end

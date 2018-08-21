@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
-  resources :users, only: [:create,:show] # testing only
+  resources :users, only: [:create, :show] # testing only
   resource :session, only:[:create, :destroy]
-  resources :tweets, only:[:create, :index]
+  resources :tweets, only:[:create, :index, :show]
  end
- root "static_pages#root"
+ root to: "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
