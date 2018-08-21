@@ -1,4 +1,4 @@
-class TweetsController < ApplicationController
+class  Api::TweetsController < ApplicationController
   before_action :require_logged_in
 
   def index
