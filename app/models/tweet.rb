@@ -10,7 +10,7 @@
 #
 
 class Tweet < ApplicationRecord
-  validate :user_id, :body, presence: true
+  validates :user_id, :body, presence: true
 
   belongs_to :user
 end

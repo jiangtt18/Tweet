@@ -2,7 +2,7 @@ class  Api::TweetsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    user = User.find_by(id: parmas[:authorId])
+    user = User.find_by(id: parmas[:userId])
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
     else
@@ -13,6 +13,7 @@ class  Api::TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+  end
 
   def create
     @tweet = Tweet.new(tweet_params)
@@ -21,10 +22,12 @@ class  Api::TweetsController < ApplicationController
       render :show
     else
       render json: @tweet.errors.full_messages, status: 422
+    end
+
   end
 
   def tweet_params
-    params.require(:tweet).permit(:body, :author_id)
+    params.require(:tweet).permit(:body, :user_id)
   end
 
 end
