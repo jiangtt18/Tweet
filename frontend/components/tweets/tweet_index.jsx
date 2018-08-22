@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import TweetsFromContainer from './tweets_form_container';
+import TweetIndexItem from './tweet_index_item';
 
 
 class TweetIndex extends React.Component {
@@ -16,7 +17,7 @@ class TweetIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(
       this.props.currentUser.id!== nextProps.currentUser.id
-    ){
+      ){
       this.props.fetchTweets(nextProps.currentUser.id);
     }
   }
@@ -24,11 +25,14 @@ class TweetIndex extends React.Component {
 
   renderTweets() {
     const tweets = Object.values(this.props.tweets);
+    const username = this.props.currentUser.username;
     return tweets.map((tweet, idx)=> {
       return (
-        <li className='tweet-item' key={`${idx}`}>
-          {tweet.body}
-        </li>
+        <TweetIndexItem
+          tweet = {tweet}
+          username = {username}
+          key = {idx}
+        />
       );
     });
   }

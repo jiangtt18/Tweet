@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,withRouter } from 'react-router-dom';
+import { Link,withRouter, Redirect } from 'react-router-dom';
 
 
 class NavBar extends React.Component{
@@ -24,7 +24,8 @@ class NavBar extends React.Component{
       logout,
       openModal,
     } = this.props;
-    console.log(this.props.currentUser);
+
+
     const sessionLinks = () => (
       <header className='header'>
         <nav className="header_nav">
@@ -46,7 +47,9 @@ class NavBar extends React.Component{
             </li>
           </ul>
         </nav>
+        <Redirect to="/" />
       </header>
+
     );
 
     const personalGreeting = () => (
@@ -54,7 +57,10 @@ class NavBar extends React.Component{
         <nav className="header_nav">
           <ul className='right_nav'>
             <li  id= 'welcome'>Hi, {currentUser.username}!</li>
-            <li><button onClick={logout}>Log Out</button></li>
+            <li><button
+              onClick={logout}>
+              Log Out</button>
+          </li>
           </ul>
         </nav>
 
