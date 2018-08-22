@@ -8,7 +8,7 @@ import {openModal} from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return{
-    tweets: state.entities.tweet,
+    tweets: state.entities.tweet || {},
     currentUser: state.session.currentUser || {},
   };
 };

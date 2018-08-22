@@ -13,6 +13,15 @@ class TweetIndex extends React.Component {
    this.props.fetchTweets(this.props.currentUser.id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(
+      this.props.currentUser.id!== nextProps.currentUser.id
+    ){
+      this.props.fetchTweets(nextProps.currentUser.id);
+    }
+  }
+
+
   renderTweets() {
     const tweets = Object.values(this.props.tweets);
     return tweets.map((tweet, idx)=> {

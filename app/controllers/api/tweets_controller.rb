@@ -1,13 +1,18 @@
 class  Api::TweetsController < ApplicationController
-  # before_action :require_logged_in
+  before_action :require_logged_in
 
   def index
-    user = User.find_by(id: params[:userId])
+    user = User.find_by(id: params[:userId]);
 
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
+      if @tweets
+          render :index
+      else
+       render json: ["no tweets posted?"]
+      end
     else
-       render json: ["no tweets posted?"], status: 404
+       render json: @tweets.errors.full_messages , status: 404
     end
 
   end
