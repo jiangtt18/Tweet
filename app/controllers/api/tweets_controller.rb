@@ -1,8 +1,8 @@
 class  Api::TweetsController < ApplicationController
-  before_action :require_logged_in
+  # before_action :require_logged_in
 
   def index
-    user = User.find_by(id: parmas[:userId])
+    user = User.find_by(id: params[:userId])
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
     else
@@ -27,7 +27,7 @@ class  Api::TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:body, :user_id)
+    params.require(:tweet).permit(:body, :userId)
   end
 
 end

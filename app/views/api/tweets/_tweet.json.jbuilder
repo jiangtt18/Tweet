@@ -1,1 +1,1 @@
-json.extract! tweet, :id, :user_id, :created_at
+json.extract! tweet, :id, :user_id, :body, :created_at
