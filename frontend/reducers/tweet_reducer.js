@@ -7,7 +7,7 @@ const tweetReducer = (oldState={}, action) => {
 
   switch(action.type) {
     case RECEIVE_TWEET:
-    return merge({},{[action.tweet.id]: action.tweet});
+    return merge({},oldState,{[action.tweet.id]: action.tweet});
     case RECEIVE_TWEETS:
       return action.tweets;
     default:

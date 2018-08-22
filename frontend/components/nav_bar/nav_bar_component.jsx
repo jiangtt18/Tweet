@@ -24,7 +24,7 @@ class NavBar extends React.Component{
       logout,
       openModal,
     } = this.props;
-
+    console.log(this.props.currentUser);
     const sessionLinks = () => (
       <header className='header'>
         <nav className="header_nav">
@@ -38,7 +38,9 @@ class NavBar extends React.Component{
             <li>
               <button
                 onClick={
-                  ()=>login({username: 'DemoUser', password:'PASSWORD'})
+                  ()=>login({username: 'DemoUser', password:'PASSWORD'},
+                   this.props.history.push('/tweets')
+                )
                 }> demo
               </button>
             </li>
@@ -55,6 +57,8 @@ class NavBar extends React.Component{
             <li><button onClick={logout}>Log Out</button></li>
           </ul>
         </nav>
+
+
       </header>
     );
 

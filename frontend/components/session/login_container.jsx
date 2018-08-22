@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { login,receiveErrors } from '../../actions/session_action';
+import { login,receiveErrors } from '../../actions/session';
 import Login from './login_form';
 
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = ({errors}) => ({
-  errors: errors.session,
+const mapStateToProps = (state) => ({
+  errors: state.sessionError,
   formType: 'Log in',
 });
 const mapDispatchToProps = dispatch => ({

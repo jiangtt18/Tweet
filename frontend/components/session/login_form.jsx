@@ -18,13 +18,9 @@ class Login extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state)
-    .then(
-      () => {
-        this.props.history.push('/');
-        this.props.closeModal();
-      }
-    );
+    this.props.processForm(this.state);
+    this.props.history.push('/tweets');
+    this.props.closeModal();
   }
 
   renderErrors() {

@@ -2,10 +2,10 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions.js';
 import SignupContainer from '../session/signup_container';
 import LoginContainer from '../session/login_container';
-import ReviewFormContainer from '../reviews/reviewForm_container';
+// import ReviewFormContainer from '../reviews/reviewForm_container';
 
 function Modal({modal}) {
   if (!modal) {
@@ -35,7 +35,7 @@ function Modal({modal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.modal
   };
 };
 

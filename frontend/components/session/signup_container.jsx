@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import{ createNewUser, receiveErrors } from '../../actions/session_action';
+
+import{ createNewUser, receiveErrors} from '../../actions/session';
 import SessionForm from './signup_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import {openModal, closeModal } from '../../actions/modal_actions';
 
 
-const mapStateToProps = ({errors}) => {
+const mapStateToProps = (state) => {
   return {
-    errors: errors.session,
+    errors: state.sessionError,
     formType: 'signup',
   };
 };
