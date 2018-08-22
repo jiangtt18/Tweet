@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import {fetchTweets} from './actions/tweet_action';
-import {fetchAllTweets} from './actions/tweet_action';
+import {fetchAllTweets, createMyTweet} from './actions/tweet_action';
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.dispatch = store.dispatch;
   window.fetchTweets = fetchTweets;
   window.fetchAllTweets = fetchAllTweets;
+  window.createMyTweet = createMyTweet;
 
   ReactDOM.render(<h1>Welcome to CastleBnB</h1>, root); // render page
 });
