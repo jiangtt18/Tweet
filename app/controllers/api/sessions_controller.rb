@@ -1,14 +1,14 @@
 class  Api::SessionsController < ApplicationController
-  
+
   def create
     @user = User.find_by_credentials(
-      params[:user][:email],
+      params[:user][:username],
       params[:user][:password]
     )
 
     if @user
       login(@user)
-      render "api/users/show"
+      render "api/tweets/index"
     else
       render json: ["Invalid email/password combination"], status: 401
     end

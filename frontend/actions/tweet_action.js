@@ -1,4 +1,4 @@
-import {fetchTweets, createTweet} from '../utils/tweet_util';
+import {fetchTweets, createTweet} from '../utils/tweet_util.js';
 
 export const RECEIVE_TWEETS = 'RECEIVE_TWEETS';
 export const RECEIVE_TWEET = 'RECEIVE_TWEET';

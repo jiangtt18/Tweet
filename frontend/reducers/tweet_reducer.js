@@ -1,6 +1,6 @@
 import {merge} from 'lodash';
 
-import {RECEIVE_TWEET, RECEIVE_TWEETS} from '../actions/tweet_action';
+import {RECEIVE_TWEET, RECEIVE_TWEETS} from '../actions/tweet_action.js';
 
 const tweetReducer = (oldState={}, action) => {
   Object.freeze(oldState);

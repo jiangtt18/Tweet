@@ -3,6 +3,7 @@ class  Api::TweetsController < ApplicationController
 
   def index
     user = User.find_by(id: params[:userId])
+
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
     else
