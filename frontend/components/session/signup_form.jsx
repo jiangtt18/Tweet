@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
     return (
       <div>
         <form className='session-form' onSubmit={this.handleSubmit} >
-          <div className='title'>Let’s get you signed up</div>
+          <div className='title'>Create your account</div>
           <div>
 
           <div
@@ -79,7 +79,7 @@ class SessionForm extends React.Component {
 
               <div className='redirect'>
                 <span> Already have an account?</span>
-                <span><button style={{'color': '#008489'}}
+                <span><button style={{'color': '#1c94e0'}}
                   onClick={() => this.props.otherForm()}>
                   Log in
                 </button></span>

@@ -40,7 +40,7 @@ class Login extends React.Component{
     return(
       <div >
         <form className='session-form' onSubmit={this.handleSubmit}>
-          <div className='title'> Log in to continue</div>
+          <div className='title'> Log in to Tweets</div>
           <div >
             <br/>
             <div
@@ -71,10 +71,10 @@ class Login extends React.Component{
               type="submit"
               value={this.props.formType} />
               <div className='redirect'>
-                <span>  Don’t have an account?</span>
+                <span> New to Tweets?</span>
                 <span>
                   <button
-                    style={{'color': '#008489'}}
+                    style={{'color': '#1c94e0'}}
                     onClick={() => this.props.otherForm()}>
                   Sign up
                   </button><

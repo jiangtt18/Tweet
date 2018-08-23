@@ -29,6 +29,13 @@ class NavBar extends React.Component{
     const sessionLinks = () => (
       <header className='header'>
         <nav className="header_nav">
+          <div className='left_nav'>
+           <a href='#'>
+             <img
+             src='http://res.cloudinary.com/doohtqbau/image/upload/v1534984701/10wmt-articleLarge-v4_kzakqj.jpg'
+             alt='logo'/>
+          </a>
+          </div>
           <ul >
             <li>
               <button onClick={() => openModal('login')}>Login</button>
@@ -55,6 +62,15 @@ class NavBar extends React.Component{
     const personalGreeting = () => (
       <header className='header'>
         <nav className="header_nav">
+
+          <div className='left_nav'>
+           <a href='#'>
+             <img
+             src='http://res.cloudinary.com/doohtqbau/image/upload/v1534984701/10wmt-articleLarge-v4_kzakqj.jpg'
+             alt='logo'/>
+          </a>
+          </div>
+
           <ul className='right_nav'>
             <li  id= 'welcome'>Hi, {currentUser.username}!</li>
             <li><button
@@ -62,9 +78,8 @@ class NavBar extends React.Component{
               Log Out</button>
           </li>
           </ul>
+
         </nav>
-
-
       </header>
     );
 

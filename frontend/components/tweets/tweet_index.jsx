@@ -26,7 +26,7 @@ class TweetIndex extends React.Component {
   renderTweets() {
     const tweets = Object.values(this.props.tweets);
     const username = this.props.currentUser.username;
-    return tweets.map((tweet, idx)=> {
+    return tweets.reverse().map((tweet, idx)=> {
       return (
         <TweetIndexItem
           tweet = {tweet}
@@ -45,9 +45,11 @@ class TweetIndex extends React.Component {
 
       <div className='tweets-container'>
         <TweetsFromContainer />
-        <ul className='tweets-index'>
+        <section className='post-body'>
+        <ul className='posts'>
           {this.renderTweets()}
         </ul>
+        </section>
       </div>
     );
   }

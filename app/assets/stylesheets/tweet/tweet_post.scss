@@ -1,0 +1,50 @@
+.posts {
+  margin: 20px 0 0 0;
+}
+
+.post {
+  display: flex;
+  border-top: 1px solid #ccc;
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+}
+
+.post-body {
+  margin: 0 0 0 20px;
+  width: 540px;
+}
+
+
+.post-body > p {
+  margin: 0 0 20px 0;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+}
+
+.post-header-info {
+  display: flex;
+  color: #999;
+  font-size: 14px;
+}
+
+.post-header-info > li:after {
+  content: "·";
+  padding: 0 5px;
+}
+
+.post-header-info > li:last-child:after {
+  content: none;
+}
+
+.post-header-tools {
+  display: flex;
+}
+
+.post-header-tools > li {
+  display: flex;
+  margin: 0 0 0 10px;
+}

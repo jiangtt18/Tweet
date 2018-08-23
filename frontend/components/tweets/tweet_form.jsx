@@ -6,8 +6,13 @@ class TweetForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {body:''};
+    this.baseState = merge({},{body:''});
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearState = this.clearState.bind(this);
+  }
+
+  componentWillUnmount(){
+    this.clearState();
   }
 
   clearState(){
@@ -31,23 +36,30 @@ class TweetForm extends React.Component{
       });
   }
 
+
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <textarea
-          className="tweet-textarea"
-          value={this.state.body}
-          onChange={this.update('body')}
-          />
-
-        <input
-          className="submit"
-          type="submit"
-          value="Submit"
-          />
+      <form ref='form' className='form' >
+        <fieldset className='form-fieldset'>
+          <div className="input">
+            <label htmlFor="form-textarea">Post Body</label>
+              <textarea
+                id="form-textarea"
+                value={this.state.body}
+                onChange={this.update('body')}
+              />
+          </div>
+          <div className='submit'>
+            <button onClick={this.handleSubmit}> Post To Wall</button>
+            <span
+              className='button-alternative'>
+              or <button onClick={this.clearState}><strong >Cancel</strong></button>
+          </span>
+          </div>
+        </fieldset>
       </form>
     );
   }
 }
 
-export default TweetForm
+export default TweetForm;

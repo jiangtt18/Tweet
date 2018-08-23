@@ -6,44 +6,44 @@
   flex-direction: column;
   background-color: #fff;
   width: 450px;
-  height:600px;
+  height:400px;
   padding: 32px;
   box-sizing: border-box;
 }
 
 .session-form input {
   height: 45px;
-  line-height: 24px;
-  border: 1px solid #00A699;
+  line-height: 15px;
+  border: 1px solid #e6ecf0;
   margin-bottom: 25px;
-  background-color: rgb(250,255,189);
   font-size: 19px;
   color: #484848 ;
   font-weight: 300 ;
-  padding: 11px ;
+  padding: 4px ;
   width: 100%;
+  border-radius: 3px;
 }
 
 .session-form input[type="submit"] {
-  background: #FF5A5F;
-  position: relative !important;
-  display: inline-block !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  border-radius: 4px !important;
-  width: 100% !important;
-  font-size: 19px !important;
-  line-height: 22px !important;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  color: #ffffff !important;
+  position: relative ;
+  display: inline-block ;
+  text-align: center ;
+  text-decoration: none ;
+  border-radius: 4px ;
+  width: 100% ;
+  font-size: 19px ;
+  line-height: 22px ;
+  padding-top: 0px ;
+  padding-bottom: 0px ;
+  color: black;
   font-weight: 700;
-  border-color:#FF5A5F;
-
+  background-color: #1da1f2;
+  border-color: #1da1f2;
+  color: white;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 24px;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
   font-weight: 700;
 }
@@ -67,7 +67,7 @@
  .redirect {
    text-align: center;
  }
- 
+
  .session-form span{
     color: $grey;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;

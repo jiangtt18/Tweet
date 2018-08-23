@@ -11,15 +11,19 @@ class TweetIndexItem extends React.Component {
     const date = new Date(created_at);
     const dates = date.toDateString().split(' ');
     return (
-      <div className='reviewComment'>
-      <li >
-        <p id='reviewer'>{username}</p>
-        <p id='date'>
+      <li className='post'>
+      <div className='post-body'>
+      <header className='post-header'>
+        <ul className='post-header-info'>
+        <li id='reviewer'>{username}</li>
+        <li id='date'>
           {dates[1]} {dates[2]} {date.getHours()} : {date.getMinutes()}
-        </p>
-        <p id = 'comment'>{body}</p>
-      </li>
+        </li>
+        </ul>
+      </header>
+      <p id = 'comment'>{body}</p>
       </div>
+      </li>
     );
   }
 }
