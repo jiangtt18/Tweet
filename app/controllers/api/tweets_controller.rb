@@ -21,7 +21,10 @@ class  Api::TweetsController < ApplicationController
   end
 
   def create
-    @tweets = $client.user_timeline(params['tweet']['body'], count: 25)
+    hashtag = params['tweet']['body']
+    parsed_hashtag = /\w+/.match(hashtag)
+
+    @tweets = $client.user_timeline(parsed_hashtag.to_s, count: 25)
     render :show
     # @tweet = Tweet.new(tweet_params)
     #
