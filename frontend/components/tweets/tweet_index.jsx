@@ -10,19 +10,6 @@ class TweetIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-   this.props.fetchTweets(this.props.currentUser.id);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if(
-      this.props.currentUser.id!== nextProps.currentUser.id
-      ){
-      this.props.fetchTweets(nextProps.currentUser.id);
-    }
-  }
-
-
   renderTweets() {
     const tweets = Object.values(this.props.tweets);
     const username = this.props.currentUser.username;
@@ -30,6 +17,7 @@ class TweetIndex extends React.Component {
       return (
         <TweetIndexItem
           tweet = {tweet}
+          deleteTweet = {this.props.deleteMyTweet}
           username = {username}
           key = {idx}
         />

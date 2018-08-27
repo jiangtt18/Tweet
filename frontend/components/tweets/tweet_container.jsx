@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import {fetchAllTweets} from '../../actions/tweet_action.js';
+import {fetchAllTweets, deleteMyTweet} from '../../actions/tweet_action.js';
 import TweetIndex from './tweet_index.jsx';
 import {openModal} from '../../actions/modal_actions';
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
   return{
     fetchTweets: (userId) => dispatch(fetchAllTweets(userId)),
     openModal:(type) => dispatch(openModal(type)),
-
+    deleteMyTweet: (id) => dispatch(deleteMyTweet(id)),
   };
 };
 

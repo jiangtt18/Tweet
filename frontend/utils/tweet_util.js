@@ -14,3 +14,10 @@ export const createTweet = (tweet) => (
     data: {tweet}
   })
 );
+
+export const deleteTweet = (id) => (
+  $.ajax({
+    url: `api/tweets/${id}`,
+    method: 'DELETE',
+  })
+);
