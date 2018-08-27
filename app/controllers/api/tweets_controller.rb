@@ -26,14 +26,7 @@ class  Api::TweetsController < ApplicationController
 
     @tweets = $client.user_timeline(parsed_hashtag.to_s, count: 25)
     render :show
-    # @tweet = Tweet.new(tweet_params)
-    #
-    # if @tweet.save
-    #   render :show
-    # else
-    #   render json: @tweet.errors.full_messages, status: 422
-    # end
-
+    
   end
 
   def destroy

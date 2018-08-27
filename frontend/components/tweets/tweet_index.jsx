@@ -18,6 +18,7 @@ class TweetIndex extends React.Component {
         <TweetIndexItem
           tweet = {tweet}
           deleteTweet = {this.props.deleteMyTweet}
+          createTweet = {this.props.createTweet}
           username = {username}
           key = {idx}
         />

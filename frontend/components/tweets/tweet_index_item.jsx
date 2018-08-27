@@ -1,4 +1,5 @@
 import React from 'react';
+import Parser from 'html-react-parser';
 
 class TweetIndexItem extends React.Component {
   constructor(props){
@@ -24,8 +25,24 @@ class TweetIndexItem extends React.Component {
   }
 
 
+
+  parseWords(arr) {
+    return arr.map((word)=>{
+      return word[0] === '@'
+      ? <button onClick={()=>this.props.createTweet({body: word})}> {` ${word}`}</button>
+      : ` ${word}`;
+    }
+  );
+  }
+
+
+
   render(){
     const {full_text,created_at} = this.props.tweet;
+
+    const words = full_text.split(' ');
+    const parsed = this.parseWords(words);
+
     const username = this.props.username;
     const date = new Date(created_at);
     const dates = date.toDateString().split(' ');
@@ -41,7 +58,7 @@ class TweetIndexItem extends React.Component {
         <li><button onClick = {this.handleDelete}>delete</button></li>
         </ul>
       </header>
-      <p id = 'comment'>{full_text}</p>
+      <p id = 'comment'>{parsed}</p>
       </div>
       </li>
     );
