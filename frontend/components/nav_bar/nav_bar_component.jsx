@@ -72,10 +72,12 @@ class NavBar extends React.Component{
 
           <ul className='right_nav'>
             <li  id= 'welcome'>Hi, {currentUser.username}!</li>
+            <li><button onClick={()=>this.props.history.push('/tweets')}>
+              My Tweet Wall</button></li>
             <li><button
               onClick={logout}>
               Log Out</button>
-          </li>
+            </li>
           </ul>
 
         </nav>
