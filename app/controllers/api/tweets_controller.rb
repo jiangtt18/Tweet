@@ -2,8 +2,8 @@ class  Api::TweetsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    user = User.find_by(id: params[:userId]);
 
+    user = User.find_by(id: params[:userId]);
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
       if @tweets
@@ -22,15 +22,20 @@ class  Api::TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
 
-    if @tweet.save
-      render :show
-    else
-      render json: @tweet.errors.full_messages, status: 422
-    end
+    @tweets = $client.user_timeline('jttalessia', count: 25)
+    render :show
+    # @tweet = Tweet.new(tweet_params)
+    #
+    # if @tweet.save
+    #   render :show
+    # else
+    #   render json: @tweet.errors.full_messages, status: 422
+    # end
 
   end
+
+  private
 
   def tweet_params
     params.require(:tweet).permit(:body, :user_id)

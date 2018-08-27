@@ -6,7 +6,7 @@ class TweetIndexItem extends React.Component {
   }
 
   render(){
-    const {body,created_at} = this.props.tweet;
+    const {full_text,created_at} = this.props.tweet;
     const username = this.props.username;
     const date = new Date(created_at);
     const dates = date.toDateString().split(' ');
@@ -21,7 +21,7 @@ class TweetIndexItem extends React.Component {
         </li>
         </ul>
       </header>
-      <p id = 'comment'>{body}</p>
+      <p id = 'comment'>{full_text}</p>
       </div>
       </li>
     );

@@ -21,12 +21,18 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
+
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    this.props.history.push('/tweets');
-    this.props.closeModal();
+    this.props.processForm(user)
+      .then ((res) => {
+        this.props.closeModal();
+        this.props.history.push("/tweets");
+      });
+
+
   }
 
   renderErrors() {
@@ -91,3 +97,4 @@ class SessionForm extends React.Component {
   }
 }
 export default withRouter(SessionForm);
+// this.props.history.push('/tweets');

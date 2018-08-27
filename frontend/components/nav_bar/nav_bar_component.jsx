@@ -46,9 +46,8 @@ class NavBar extends React.Component{
             <li>
               <button
                 onClick={
-                  ()=>login({username: 'DemoUser', password:'PASSWORD'},
-                   this.props.history.push('/tweets')
-                )
+                  ()=>login({username: 'DemoUser', password:'PASSWORD'})
+                    .then(() => this.props.history.push('/tweets'))
                 }> demo
               </button>
             </li>

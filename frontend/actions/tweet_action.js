@@ -23,5 +23,5 @@ export const fetchAllTweets = userId => dispatch => (
 
 export const createMyTweet = (tweet) => dispatch => (
   createTweet(tweet)
-    .then(resTweet => dispatch(receiveTweet(resTweet)))
+    .then(resTweet => dispatch(receiveAllTweets(resTweet)))
 );
