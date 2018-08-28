@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show] # testing only
   resource :session, only:[:create, :destroy]
   resources :tweets, only:[:create, :index, :show, :destroy]
-  # resource :handle, only:[:index], to: 'tweets#index'
  end
 
  root to: "static_pages#root"

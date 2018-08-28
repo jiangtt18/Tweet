@@ -29,7 +29,7 @@ class TweetIndexItem extends React.Component {
   parseWords(arr) {
     return arr.map((word)=>{
       return word[0] === '@'
-      ? <button onClick={()=>this.props.createTweet({body: word})}> {` ${word}`}</button>
+      ? <button onClick={()=>this.props.createTweet({body: word})}><b>{` ${word}`}</b></button>
       : ` ${word}`;
     }
   );
