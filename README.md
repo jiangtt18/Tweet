@@ -1,6 +1,6 @@
 # Tweets
 
-[Tweets Live](https://tweet-duco.herokuapp.com/)
+[Tweets Live](https://tweet-duco2.herokuapp.com/)
 
 ### Instructions
   * Simply click on demo to log in as a demo user and post/get your tweets
