@@ -38,7 +38,7 @@ class TweetIndexItem extends React.Component {
 
 
   render(){
-    const {full_text,created_at} = this.props.tweet;
+    const {full_text, created_at} = this.props.tweet;
 
     const words = full_text.split(' ');
     const parsed = this.parseWords(words);
