@@ -16,11 +16,16 @@ class Login extends React.Component{
     this.props.clearErrors();
   }
 
-  handleSubmit(e) {
+
+
+ handleSubmit (e) {
     e.preventDefault();
-    this.props.processForm(this.state);
-    this.props.history.push('/tweets');
-    this.props.closeModal();
+    this.props.processForm(this.state)
+      .then ((res) => {
+      this.props.closeModal();
+      this.props.history.push("/tweets");
+    });
+
   }
 
   renderErrors() {
@@ -94,3 +99,4 @@ class Login extends React.Component{
 }
 
   export default withRouter(Login);
+// this.props.history.push('/tweets');

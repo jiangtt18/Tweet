@@ -3,7 +3,6 @@ class  Api::TweetsController < ApplicationController
 
   def index
     user = User.find_by(id: params[:userId]);
-
     if user
       @tweets = user.tweets.order(id: :desc).limit(25)
       if @tweets
@@ -22,15 +21,27 @@ class  Api::TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    hashtag = params['tweet']['body']
+    parsed_hashtag = /\w+/.match(hashtag)
 
-    if @tweet.save
-      render :show
+    @tweets = $client.user_timeline(parsed_hashtag.to_s, count: 25)
+    render :show
+    
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+
+    if tweet
+      tweet.destroy
+      render json: tweet
     else
-      render json: @tweet.errors.full_messages, status: 422
+      render json: ["tweet doesn't exist"], status: 404
     end
 
   end
+
+  private
 
   def tweet_params
     params.require(:tweet).permit(:body, :user_id)
